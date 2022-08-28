@@ -54,8 +54,16 @@ public class RR {
                 counter += burstTime;
                 waitingQueue.peek().setCompletionTime(counter);
                 waitingQueue.peek().setTurnAroundTime(waitingQueue.peek().getCompletionTime() - waitingQueue.peek().getArrivalTime());
-
                 executedProcesses.add(waitingQueue.poll());
+                if(waitingQueue.size() == 0 && iterator!=processes.size()-1){
+                    while (iterator < processes.size()) {
+                        if (processes.get(iterator).getArrivalTime() > counter) {
+                            break;
+                        }
+                        waitingQueue.add(processes.get(iterator));
+                        ++iterator;
+                    }
+                }
             }
         }
         executedProcesses.sort(Comparator.comparing(Process::getProcessId));
