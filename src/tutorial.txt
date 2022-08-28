@@ -1,0 +1,41 @@
+Steps for FCFS 
+
+Ways to take input from the user:
+    1. Array -- pid[], at[], bt[], .... rt[].
+    2. Array of process[] -- Process[] Processes = new Process[size];
+        data class (Process)
+
+                class Process{
+                private String pid;
+                private int at,bt,ct,tat,wt,rt;
+                }
+                ct = counter + burstTime
+                tat = ct - bt 
+                wt = tat - at
+                rp = time we received the counter - arrival time -- ? performance
+   
+time we received the counter -- time before we update counter with our burst time
+
+
+    3. ArrayList -- ArrayList<Process> Processes = new ArrayList<>();
+
+Basic steps:- 
+
+1. user input 
+    a. process id
+    b. arrival time 
+    c. burst time
+2. counter variable .. counter = 0;
+3. sort the input(Processes) according to arrival time
+        Processes.sort()// according to arrival time
+
+4. for(Process p : processes){
+    p.rpt = counter - p.at;
+    counter = counter + p.burstTime();
+    p.ct = counter; // p.setCompletetionTime(counter);
+    p.tat = counter - p.bt;
+    p.wt = p.tat - p.at;
+}
+
+5. sort array/ arraylist according to processId
+6. print the table 
