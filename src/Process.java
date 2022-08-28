@@ -4,6 +4,24 @@ public class Process implements Comparable<Process> {
     private String processId;
     private int arrivalTime, burstTime, completionTime, turnAroundTime, waitingTime, RespTime;
 
+    private int priority;
+
+    public int getPriority() {
+        return priority;
+    }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
+    }
+
+    //    for priority scheduling
+    public Process(String processId, int arrivalTime, int burstTime, int priority) {
+        this.processId = processId;
+        this.arrivalTime = arrivalTime;
+        this.burstTime = burstTime;
+        this.priority = priority;
+    }
+
     public Process(String processId, int arrivalTime, int burstTime) {
         this.processId = processId;
         this.arrivalTime = arrivalTime;
