@@ -6,14 +6,6 @@ public class Process implements Comparable<Process> {
 
     private int priority;
 
-    public int getPriority() {
-        return priority;
-    }
-
-    public void setPriority(int priority) {
-        this.priority = priority;
-    }
-
     //    for priority scheduling
     public Process(String processId, int arrivalTime, int burstTime, int priority) {
         this.processId = processId;
@@ -26,6 +18,14 @@ public class Process implements Comparable<Process> {
         this.processId = processId;
         this.arrivalTime = arrivalTime;
         this.burstTime = burstTime;
+    }
+
+    public int getPriority() {
+        return priority;
+    }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
     }
 
     public int getCompletionTime() {
@@ -86,7 +86,7 @@ public class Process implements Comparable<Process> {
 
     @Override
     public int compareTo(Process process) {
-        int compareArivalTime = ((Process)process).getArrivalTime();
+        int compareArivalTime = ((Process) process).getArrivalTime();
         return this.arrivalTime - compareArivalTime;
     }
 }
